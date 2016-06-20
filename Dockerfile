@@ -209,6 +209,9 @@ RUN add-apt-repository ppa:libreoffice/ppa &&\
     apt-get update -y &&\
     apt-get install -y libreoffice libreoffice-script-provider-python uno-libs3 python3-uno python3
  
+RUN  add-apt-repository ppa:simon-cadman/niftyrepo &&\
+     sudo apt-get update -y &&\
+     sudo apt-get install cupscloudprint
 
 CMD ["bash", "-c", "/etc/init.d/dbus start ; /etc/init.d/cups start; /start.sh ; /usr/bin/supervisord"]
 

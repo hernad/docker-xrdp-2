@@ -23,7 +23,9 @@ docker run -d \
       -v ${PWD}/.f18:/home/docker2/.f18 \
       -v ${PWD}/.wine:/$HOME_DIR/.wine \
       -v ${PWD}/build:/build \
-       -p 33892:3389 \
+       -p 33892:3389\
       $IMG
 
+
+      #-v ${PWD}/cups/printers.conf:/etc/cups/printes.conf \
 docker exec -ti $CT /bin/bash
