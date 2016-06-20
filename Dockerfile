@@ -211,7 +211,7 @@ RUN add-apt-repository ppa:libreoffice/ppa &&\
  
 RUN  add-apt-repository ppa:simon-cadman/niftyrepo &&\
      sudo apt-get update -y &&\
-     sudo apt-get install cupscloudprint
+     sudo apt-get install cupscloudprint -y
 
 CMD ["bash", "-c", "/etc/init.d/dbus start ; /etc/init.d/cups start; /start.sh ; /usr/bin/supervisord"]
 
