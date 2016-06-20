@@ -24,6 +24,7 @@ docker run -d \
       -v ${PWD}/.wine:/$HOME_DIR/.wine \
       -v ${PWD}/build:/build \
       -v ${PWD}/cups/printers.conf:/etc/cups/printers.conf \
+      -v ${PWD}/cups/cloudprint.conf:/etc/cloudprint.conf \
        -p 33892:3389\
       $IMG
 
