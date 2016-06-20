@@ -14,6 +14,8 @@ docker rm -f $CT
 docker run -d \
       --hostname $HOSTNAME \
       --name $CT \
+      --cap-add SYS_ADMIN \
+      --device /dev/fuse \
       -v $(pwd)/dockerx/.config/google-chrome:$HOME_DIR/.config/google-chrome \
       -v $(pwd)/syncthing/config:/syncthing/config \
       -v $(pwd)/data:/syncthing/data \
@@ -23,10 +25,11 @@ docker run -d \
       -v ${PWD}/.f18:/home/docker2/.f18 \
       -v ${PWD}/.wine:/$HOME_DIR/.wine \
       -v ${PWD}/build:/build \
-      -v ${PWD}/cups/printers.conf:/etc/cups/printers.conf \
       -v ${PWD}/cups/cloudprint.conf:/etc/cloudprint.conf \
+      -v ${PWD}/.gdfuse:/$HOME_DIR/.gdfuse \
        -p 33892:3389\
       $IMG
 
 
+      #-v ${PWD}/cups/printers.conf:/etc/cups/printers.conf \
 docker exec -ti $CT /bin/bash

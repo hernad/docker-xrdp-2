@@ -230,6 +230,9 @@ RUN export WINE_BRANCH=1.9 &&\
 
 ADD https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks /usr/local/bin/
 
+RUN add-apt-repository -y ppa:alessandro-strada/ppa &&\
+    apt-get update -y &&\
+    apt-get install -y google-drive-ocamlfuse
 
 CMD ["bash", "-c", "/etc/init.d/dbus start ; /etc/init.d/cups start; /start.sh ; /usr/bin/supervisord"]
 
